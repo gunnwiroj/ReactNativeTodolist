@@ -7,12 +7,8 @@ export default class Taskadd extends React.Component{
         this.state = {
             currenttask:'',
         }
-        this.check = this.check.bind(this);
     }
     
-    check(){
-        
-    }
     render(){
         return(
             <View>
@@ -21,7 +17,7 @@ export default class Taskadd extends React.Component{
                 onChangeText={(text)=>this.setState({currenttask:text})}
             />
             <Button
-                title="Press"
+                title="Add Task"
                 onPress={()=> this.props.AddTask(this.state.currenttask)}
             />
             </View>
