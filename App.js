@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput ,Alert } from 'react-native';
+import { StyleSheet, View, TextInput ,Alert } from 'react-native';
+import { Text, Header} from 'react-native-elements';
 import Taskadd from './ component/Taskadd';
 import TaskList from './ component/Tasklist';
 export default class App extends React.Component {
@@ -33,9 +34,13 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-          <Text>Todo List</Text>
-          <Taskadd AddTask={this.AddTask}/>
-          <TaskList Task={this.state.AllTask} RemoveTask={this.RemoveTask}/>
+        <Header
+          centerComponent={{text:'Native Todo' ,style:{color:'white',fontWeight:'bold',fontSize:16}}}
+        />
+          <View style={{marginTop:15, marginLeft:10}}>
+            <Taskadd AddTask={this.AddTask}/>
+            <TaskList Task={this.state.AllTask} RemoveTask={this.RemoveTask}/>
+          </View>
       </View>
     );
   }
@@ -45,7 +50,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    
   },
+  
 });
