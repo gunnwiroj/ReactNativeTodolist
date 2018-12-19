@@ -9,11 +9,9 @@ export default class App extends React.Component {
     this.state = {
       AllTask:[],
     }
-    this.AddTask = this.AddTask.bind(this)
-    this.RemoveTask = this.RemoveTask.bind(this)
   }
-
-  AddTask(task){
+  
+  AddTask = (task) => {
     if(task!=null){
       let newtask = this.state.AllTask.slice();
       newtask = newtask.concat(task);
@@ -23,9 +21,13 @@ export default class App extends React.Component {
     }
   }
 
-  RemoveTask(id){
+  RemoveTask = (id) => {
     let newtask = this.state.AllTask.slice();
+    {/* "slice" = deconstruct array in to pieces */}
     newtask.splice(id,1);
+    {/* "splice" = delete data at index = id // (,1) = delete length = 1
+      eg. ["a","b","c"] => splice(id=1,1) => ["a",c"] // splice(id=1,2) => ["a"] 
+    */}
     this.setState({
       AllTask :newtask
     });
